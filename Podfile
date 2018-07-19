@@ -6,10 +6,4 @@ target 'UponShef' do
   use_frameworks!
 
   # Pods for UponShef
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'RxAlamofire'
-  pod 'SnapKit'
-  pod 'Then'
-  pod 'R.swift'
 end
