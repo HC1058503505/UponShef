@@ -19,6 +19,7 @@
 		081B3E3B20FDF4BD00927046 /* UponShefViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B3E3A20FDF4BD00927046 /* UponShefViewController.swift */; };
 		081B3E3D20FDF4CB00927046 /* RecipeCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B3E3C20FDF4CB00927046 /* RecipeCategoryViewController.swift */; };
 		081B3E3F20FDF4D600927046 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B3E3E20FDF4D600927046 /* MoreViewController.swift */; };
+		E690547F660FBEF474720914 /* Pods_UponShef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C48754EA796177390F3FA1 /* Pods_UponShef.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,9 @@
 		081B3E3A20FDF4BD00927046 /* UponShefViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UponShefViewController.swift; sourceTree = "<group>"; };
 		081B3E3C20FDF4CB00927046 /* RecipeCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCategoryViewController.swift; sourceTree = "<group>"; };
 		081B3E3E20FDF4D600927046 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		50C48754EA796177390F3FA1 /* Pods_UponShef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UponShef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FECE3A87CE13F0A50C757C6 /* Pods-UponShef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UponShef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UponShef/Pods-UponShef.release.xcconfig"; sourceTree = "<group>"; };
+		B013093C35F94AD9A2D7AF5D /* Pods-UponShef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UponShef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UponShef/Pods-UponShef.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E690547F660FBEF474720914 /* Pods_UponShef.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +59,8 @@
 			children = (
 				081B3E1820FDF33200927046 /* UponShef */,
 				081B3E1720FDF33200927046 /* Products */,
+				B39DF3D280EFF0323394D383 /* Pods */,
+				2A20550EF9D67EF65F6772AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +82,7 @@
 				081B3E3920FDF49400927046 /* More */,
 				081B3E2B20FDF3FA00927046 /* Base */,
 				081B3E3120FDF44100927046 /* Tools */,
+				081DDD2C20FF412B000E571C /* Sources */,
 				081B3E1D20FDF33200927046 /* Main.storyboard */,
 				081B3E2020FDF33300927046 /* Assets.xcassets */,
 				081B3E2220FDF33300927046 /* LaunchScreen.storyboard */,
@@ -113,6 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				081B3E3C20FDF4CB00927046 /* RecipeCategoryViewController.swift */,
+				08558F6F21004FF000EC4A6F /* HealthyCategory */,
+				08558F6E21004FC000EC4A6F /* FoodMaterialCategory */,
+				08558F6D21004FA400EC4A6F /* NormalCategory */,
+				08558F6C21004F6A00EC4A6F /* HotCategory */,
 			);
 			path = RecipeCategory;
 			sourceTree = "<group>";
@@ -125,6 +137,58 @@
 			path = More;
 			sourceTree = "<group>";
 		};
+		081DDD2C20FF412B000E571C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		08558F6C21004F6A00EC4A6F /* HotCategory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HotCategory;
+			sourceTree = "<group>";
+		};
+		08558F6D21004FA400EC4A6F /* NormalCategory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NormalCategory;
+			sourceTree = "<group>";
+		};
+		08558F6E21004FC000EC4A6F /* FoodMaterialCategory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FoodMaterialCategory;
+			sourceTree = "<group>";
+		};
+		08558F6F21004FF000EC4A6F /* HealthyCategory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HealthyCategory;
+			sourceTree = "<group>";
+		};
+		2A20550EF9D67EF65F6772AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50C48754EA796177390F3FA1 /* Pods_UponShef.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B39DF3D280EFF0323394D383 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B013093C35F94AD9A2D7AF5D /* Pods-UponShef.debug.xcconfig */,
+				7FECE3A87CE13F0A50C757C6 /* Pods-UponShef.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 081B3E2820FDF33300927046 /* Build configuration list for PBXNativeTarget "UponShef" */;
 			buildPhases = (
+				F373C1D49F4C828903613D0E /* [CP] Check Pods Manifest.lock */,
 				081B3E1220FDF33200927046 /* Sources */,
 				081B3E1320FDF33200927046 /* Frameworks */,
 				081B3E1420FDF33200927046 /* Resources */,
+				AD0E382BA6D5DF3D47097B25 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,6 +256,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AD0E382BA6D5DF3D47097B25 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UponShef/Pods-UponShef-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UponShef/Pods-UponShef-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F373C1D49F4C828903613D0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UponShef-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		081B3E1220FDF33200927046 /* Sources */ = {
@@ -346,6 +461,7 @@
 		};
 		081B3E2920FDF33300927046 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B013093C35F94AD9A2D7AF5D /* Pods-UponShef.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -364,6 +480,7 @@
 		};
 		081B3E2A20FDF33300927046 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FECE3A87CE13F0A50C757C6 /* Pods-UponShef.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

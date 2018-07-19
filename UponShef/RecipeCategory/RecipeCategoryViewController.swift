@@ -13,7 +13,10 @@ class RecipeCategoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        // Do any additional setup after loading the view.
+        navigationItem.title = ""
+        let segment = UISegmentedControl(items: ["热门","常见","食材","健康"])
+        segment.center = CGPoint(x: kScreenWidth * 0.5, y: kNavgiationTabBarH * 0.5)
+        navigationController?.navigationBar.addSubview(segment)
     }
 
     override func didReceiveMemoryWarning() {
