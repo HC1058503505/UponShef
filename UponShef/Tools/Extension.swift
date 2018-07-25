@@ -15,3 +15,22 @@ extension String {
         return (str as NSString).boundingRect(with: CGSize(width: kScreenWidth - 20, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : font], context: nil).size.height
     }
 }
+
+
+extension DispatchQueue {
+    fileprivate static var _onceToken = [String]()
+    
+    static func once(token: String, block: () -> Void) {
+        objc_sync_enter(self)
+        
+        defer {
+            objc_sync_exit(self)
+        }
+        
+        if _onceToken.contains(token) {
+            return
+        }
+        _onceToken.append(token)
+        block()
+    }
+}
