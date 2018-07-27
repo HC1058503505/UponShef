@@ -21,7 +21,9 @@ class FoodMaterialViewController: CagtegoryBaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override var hasHeader: Bool {
+        return true
+    }
 
     /*
     // MARK: - Navigation

@@ -12,4 +12,6 @@ target 'UponShef' do
   pod 'Then'
   pod 'SnapKit'
   pod 'R.swift'
+  pod 'Kingfisher'
+  pod 'RxDataSources'
 end

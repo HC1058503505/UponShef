@@ -48,19 +48,22 @@ class CategoryListTableViewCell: UITableViewCell {
     }
     
     
-    func configureCell(content: String) {
-        titleL.text = content
+    func configureCell(content: HotCategoryModel) {
+        titleL.text = content.categoryTitle
+        itemSelected = content.isSelected
     }
     
  
-    var itemSelected: Bool = false {
+   fileprivate var itemSelected: Bool = false {
         willSet {
             if  newValue {
                 titleL.textColor = kThemeColor
                 indicatorV.backgroundColor = kThemeColor
+                contentView.backgroundColor = kThemeLightGrayColor
             } else {
                 titleL.textColor = UIColor.black
                 indicatorV.backgroundColor = kThemeLightGrayColor
+                contentView.backgroundColor = UIColor.white
             }
         }
     }

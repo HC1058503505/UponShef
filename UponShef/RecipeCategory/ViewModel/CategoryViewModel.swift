@@ -11,14 +11,9 @@ import RxSwift
 import RxAlamofire
 import RxCocoa
 
-protocol ViewModelType {
-    associatedtype Input
-    associatedtype Output
-    
-    func transform(input: Input) -> Output
-}
 
-class CategoryViewModel : ViewModelType{
+
+struct CategoryViewModel : ViewModelType{
     
     struct Input {
         let categoryType: Observable<Int>
@@ -32,9 +27,8 @@ class CategoryViewModel : ViewModelType{
     func transform(input: CategoryViewModel.Input) -> CategoryViewModel.Output {
         let output = input.categoryType.flatMap { (categoryType) -> Observable<[HotCategoryModel]> in
             let type = CategoryListType.categoryType(index: categoryType)
-            
-            let http = HTTPManager.manager()
-            return http.categoryList(type: type)
+
+            return HTTPManager.categoryList(type: type)
         }
         return Output(categoryList: output)
     }

@@ -39,13 +39,11 @@ class RecipeCategoryViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         navigationItem.title = ""
-       let segment = UISegmentedControl(items: ["热门","常见","食材","健康"]).then { segmentContol in
+        let segment = UISegmentedControl(items: ["热门","常见","食材","健康"]).then { segmentContol in
             segmentContol.center = CGPoint(x: kScreenWidth * 0.5, y: kNavgiationTabBarH * 0.5)
             segmentContol.selectedSegmentIndex = 0
         }
         navigationController?.navigationBar.addSubview(segment)
-        
-        print(view.bounds)
         
         scroll.backgroundColor = UIColor.black
         scroll.isPagingEnabled = true
@@ -57,7 +55,7 @@ class RecipeCategoryViewController: UIViewController {
         
         segment.rx.selectedSegmentIndex.asObservable()
             .subscribe(onNext: {[weak self] (segmentIndex) in
-                    self?.scroll.setContentOffset(CGPoint(x: kScreenWidth * CGFloat(segmentIndex), y: 0), animated: true)
+                    self?.scroll.setContentOffset(CGPoint(x: kScreenWidth * CGFloat(segmentIndex), y: 0), animated: false)
             })
             .disposed(by: disposeBag)
 
@@ -79,5 +77,15 @@ class RecipeCategoryViewController: UIViewController {
             scroll.addSubview(vc.view)
             addChildViewController(vc)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.subviews.last?.isHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.subviews.last?.isHidden = true
     }
 }
