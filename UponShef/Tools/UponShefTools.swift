@@ -30,10 +30,20 @@ struct Tools  {
     }
     
     static func safeAreaInsetTop() -> CGFloat {
-        return UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0
+        let  safeTop = UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0
+        
+        return safeTop == 0 ? 20 : safeTop
     }
     
     static func safeAreaInsetBottom() -> CGFloat {
         return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
+    }
+    
+    static func navigationHeight() -> CGFloat {
+        return Tools.safeAreaInsetTop() + kNavgiationTabBarH
+    }
+    
+    static func tabBarHeight() -> CGFloat {
+        return Tools.safeAreaInsetBottom() + kNavgiationTabBarH
     }
 }

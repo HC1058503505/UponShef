@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081B19B7210EAD170060A949 /* RecipeStepsPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B19B6210EAD170060A949 /* RecipeStepsPlayerView.swift */; };
+		081B19B9210EE3470060A949 /* RecipePictureBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B19B8210EE3470060A949 /* RecipePictureBrowseViewController.swift */; };
+		081B19BB210EF0B00060A949 /* PictureBrowseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B19BA210EF0B00060A949 /* PictureBrowseCollectionViewCell.swift */; };
 		081B3E1A20FDF33200927046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081B3E1920FDF33200927046 /* AppDelegate.swift */; };
 		081B3E2120FDF33300927046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 081B3E2020FDF33300927046 /* Assets.xcassets */; };
 		081B3E2420FDF33300927046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 081B3E2220FDF33300927046 /* LaunchScreen.storyboard */; };
@@ -41,6 +44,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		081B19B6210EAD170060A949 /* RecipeStepsPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepsPlayerView.swift; sourceTree = "<group>"; };
+		081B19B8210EE3470060A949 /* RecipePictureBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePictureBrowseViewController.swift; sourceTree = "<group>"; };
+		081B19BA210EF0B00060A949 /* PictureBrowseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureBrowseCollectionViewCell.swift; sourceTree = "<group>"; };
 		081B3E1620FDF33200927046 /* UponShef.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UponShef.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		081B3E1920FDF33200927046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		081B3E2020FDF33300927046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -209,6 +215,8 @@
 				08B37C39210AC4E9009EE99C /* RecipeTableViewCell.swift */,
 				08F12129210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift */,
 				08F1212B210AFD6400A6F25A /* RecipeStepTableViewCell.swift */,
+				081B19B6210EAD170060A949 /* RecipeStepsPlayerView.swift */,
+				081B19BA210EF0B00060A949 /* PictureBrowseCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,6 +278,7 @@
 				081B3E3C20FDF4CB00927046 /* RecipeCategoryViewController.swift */,
 				086580482109CB490006EDAD /* RecipeListViewController.swift */,
 				08B37C3F210AD9E4009EE99C /* RecipeSetpsViewController.swift */,
+				081B19B8210EE3470060A949 /* RecipePictureBrowseViewController.swift */,
 				0821E9C321085EFF002F45A9 /* CagtegoryBaseViewController.swift */,
 			);
 			path = ViewController;
@@ -404,9 +413,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				081B19BB210EF0B00060A949 /* PictureBrowseCollectionViewCell.swift in Sources */,
 				08B37C34210AB7E4009EE99C /* RecipeModel.swift in Sources */,
 				08F12128210AF51000A6F25A /* RecipeDetailViewModel.swift in Sources */,
 				081B3E3F20FDF4D600927046 /* MoreViewController.swift in Sources */,
+				081B19B9210EE3470060A949 /* RecipePictureBrowseViewController.swift in Sources */,
 				081B3E2F20FDF3FA00927046 /* UponShefTabBarViewController.swift in Sources */,
 				0821E9C221085492002F45A9 /* HotCategoryViewController.swift in Sources */,
 				08558F752100789C00EC4A6F /* CategoryViewModel.swift in Sources */,
@@ -417,6 +428,7 @@
 				081B3E3B20FDF4BD00927046 /* UponShefViewController.swift in Sources */,
 				08F1212C210AFD6400A6F25A /* RecipeStepTableViewCell.swift in Sources */,
 				08F1212A210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift in Sources */,
+				081B19B7210EAD170060A949 /* RecipeStepsPlayerView.swift in Sources */,
 				0821E9C421085EFF002F45A9 /* CagtegoryBaseViewController.swift in Sources */,
 				08558F7321006EA900EC4A6F /* CategoryListModel.swift in Sources */,
 				08B37C40210AD9E4009EE99C /* RecipeSetpsViewController.swift in Sources */,

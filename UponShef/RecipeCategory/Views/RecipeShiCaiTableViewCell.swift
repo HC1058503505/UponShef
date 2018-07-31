@@ -24,6 +24,7 @@ class RecipeShiCaiTableViewCell: UITableViewCell {
     
     
     fileprivate func setup() {
+        selectionStyle = .none
         contentView.addSubview(shicaiNameL)
         contentView.addSubview(shicaiFengliangL)
         

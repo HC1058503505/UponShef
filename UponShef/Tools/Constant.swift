@@ -20,9 +20,6 @@ let kThemeLightGrayColor = UIColor(red: 240.0 / 255.0, green: 240.0 / 255.0, blu
 
 let kNavgiationTabBarH = CGFloat(44.0)
 
-let kStatusHeight = Tools.safeAreaInsetTop() > 0 ? Tools.safeAreaInsetTop() : 20
-let kNavgiationHeight = Tools.safeAreaInsetTop() + kStatusHeight + kNavgiationTabBarH
-let kTabBarHeight = Tools.safeAreaInsetBottom() + kNavgiationTabBarH
 let placeholderImg = UIImage(named: "placeholder")
 
 

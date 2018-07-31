@@ -34,7 +34,7 @@ enum CategoryListType: Int {
 class RecipeCategoryViewController: UIViewController {
 
     let disposeBag = DisposeBag()
-    let scroll = UIScrollView(frame: CGRect(x: 0, y: kNavgiationHeight, width: kScreenWidth, height: kScreenHeight - kNavgiationHeight - kTabBarHeight))
+    let scroll = UIScrollView(frame: CGRect(x: 0, y: Tools.navigationHeight(), width: kScreenWidth, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()))
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -44,14 +44,14 @@ class RecipeCategoryViewController: UIViewController {
             segmentContol.selectedSegmentIndex = 0
         }
         navigationController?.navigationBar.addSubview(segment)
-        
-        scroll.backgroundColor = UIColor.black
+//        automaticallyAdjustsScrollViewInsets = false
+        scroll.contentInsetAdjustmentBehavior = .never
         scroll.isPagingEnabled = true
         scroll.bounces = false
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
         view.addSubview(scroll)
-        scroll.contentSize = CGSize(width: kScreenWidth * 4.0, height: kScreenHeight - kNavgiationHeight - kTabBarHeight)
+        scroll.contentSize = CGSize(width: kScreenWidth * 4.0, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight())
         
         segment.rx.selectedSegmentIndex.asObservable()
             .subscribe(onNext: {[weak self] (segmentIndex) in
@@ -73,7 +73,7 @@ class RecipeCategoryViewController: UIViewController {
         
         for vc in vcs {
             vc.segmentIndex = Observable<Int>.of(vcs.index(of: vc) ?? 0)
-            vc.view.frame = CGRect(x:kScreenWidth * CGFloat(vcs.index(of: vc) ?? 0) , y: 0, width: kScreenWidth, height: kScreenHeight - kNavgiationHeight - kTabBarHeight)
+            vc.view.frame = CGRect(x:kScreenWidth * CGFloat(vcs.index(of: vc) ?? 0) , y: 0, width: kScreenWidth, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight())
             scroll.addSubview(vc.view)
             addChildViewController(vc)
         }

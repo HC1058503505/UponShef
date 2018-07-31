@@ -29,20 +29,23 @@ class RecipeStepTableViewCell: UITableViewCell {
     }
     
     fileprivate func setup() {
+        selectionStyle = .none
         contentView.addSubview(recipeImgView)
         contentView.addSubview(recipeStepL)
         
         recipeImgView.snp.makeConstraints { (make) in
-            make.left.equalTo(contentView.snp.left).offset(10)
             make.top.equalTo(contentView.snp.top).offset(10)
-            make.right.equalTo(contentView.snp.right).offset(-10)
+            make.centerX.equalTo(contentView.snp.centerX)
+            make.width.equalTo(250.0)
+            make.height.equalTo(200.0)
             make.bottom.equalTo(recipeStepL.snp.top).offset(-10)
         }
         
         recipeStepL.snp.makeConstraints { (make) in
-            make.left.equalTo(recipeImgView.snp.left)
+            make.left.equalTo(contentView.snp.left).offset(10)
             make.bottom.equalTo(contentView.snp.bottom).offset(-10)
-            make.right.equalTo(recipeImgView.snp.right)
+            make.right.equalTo(contentView.snp.right).offset(-10)
+            make.top.equalTo(recipeImgView.snp.bottom).offset(10)
         }
     }
     

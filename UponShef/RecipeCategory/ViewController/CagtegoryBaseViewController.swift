@@ -16,7 +16,7 @@ class CagtegoryBaseViewController: UIViewController {
     
     fileprivate var categoryModels = [HotCategoryModel]()
     fileprivate var tempSelectedIndexPath = IndexPath(row: 0, section: 0)
-    fileprivate let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: kScreenHeight - kNavgiationHeight - kTabBarHeight), style: .plain)
+    fileprivate let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()), style: .plain)
     
     
     fileprivate var detailCollection = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
@@ -59,7 +59,7 @@ class CagtegoryBaseViewController: UIViewController {
             }
         }
         
-        detailCollection = UICollectionView(frame: CGRect(x: 100, y: 0, width: kScreenWidth - 100, height: kScreenHeight - kNavgiationHeight - kTabBarHeight), collectionViewLayout: flowLayout)
+        detailCollection = UICollectionView(frame: CGRect(x: 100, y: 0, width: kScreenWidth - 100, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()), collectionViewLayout: flowLayout)
         detailCollection.backgroundColor = UIColor.white
         detailCollection.dataSource = self
         detailCollection.delegate = self

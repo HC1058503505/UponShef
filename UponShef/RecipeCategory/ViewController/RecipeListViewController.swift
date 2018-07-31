@@ -59,8 +59,10 @@ class RecipeListViewController: UIViewController {
             .subscribe(onNext: {[weak self] (element) in
   
                 let recipeStepsVC = RecipeSetpsViewController()
-                recipeStepsVC.recipeType = Observable<(String, String)>.just((element.recipe_type, element.recipe_id))
-                recipeStepsVC.title = element.recipe_name
+//                recipeStepsVC.recipeType = Observable<(String, String)>.just((element.recipe_type, element.recipe_id))
+//                recipeStepsVC.title = element.recipe_name
+//                recipeStepsVC.isVideo = element.recipe_isvideo
+                recipeStepsVC.recipeOutlineModel = element
                 self?.navigationController?.pushViewController(recipeStepsVC, animated: true)
             })
             .disposed(by: disposeBag)
@@ -82,9 +84,7 @@ extension RecipeListViewController : UIViewControllerPreviewingDelegate {
         }
         let element = recipes[indexPath.row]
         let recipeStepsVC = RecipeSetpsViewController()
-        recipeStepsVC.title = element.recipe_name
-//        recipeStepsVC.isPeek = true
-        recipeStepsVC.recipeType = Observable<(String, String)>.just((element.recipe_type, element.recipe_id))
+        recipeStepsVC.recipeOutlineModel = element
         return recipeStepsVC
     }
     
