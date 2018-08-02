@@ -15,13 +15,12 @@ import Then
 
 class PictureBrowseCollectionViewCell: UICollectionViewCell {
     
-    var translationAction: (()->())?
-    
     fileprivate let scroll = UIScrollView().then { (scrollView) in
         scrollView.backgroundColor = UIColor.black
         scrollView.contentInsetAdjustmentBehavior = .never
-        scrollView.maximumZoomScale = 5.0
+        scrollView.maximumZoomScale = 2.5
         scrollView.minimumZoomScale = 1.0
+        scrollView.backgroundColor = UIColor.clear
         scrollView.setZoomScale(1.0, animated: false)
     }
     
@@ -30,6 +29,17 @@ class PictureBrowseCollectionViewCell: UICollectionViewCell {
         imageView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 250)
         imageView.center = CGPoint(x: kScreenWidth * 0.5, y: kScreenHeight * 0.5)
     }
+    
+//    fileprivate let describeLabel = UILabel().then { (describe) in
+//        describe.backgroundColor = UIColor.clear
+//        describe.textColor = UIColor.white
+//        describe.font = UIFont.systemFont(ofSize: 15.0)
+//        describe.numberOfLines = 0
+//    }
+//
+//    fileprivate let containerView = UIView().then { (container) in
+//        container.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+//    }
     
     fileprivate let disposeBag = DisposeBag()
     override init(frame: CGRect) {
@@ -46,6 +56,8 @@ class PictureBrowseCollectionViewCell: UICollectionViewCell {
         scroll.delegate = self
         contentView.addSubview(scroll)
         scroll.addSubview(imageV)
+//        contentView.addSubview(containerView)
+//        containerView.addSubview(describeLabel)
         
         scroll.snp.makeConstraints { (make) in
             make.left.equalTo(contentView.snp.left)
@@ -53,13 +65,19 @@ class PictureBrowseCollectionViewCell: UICollectionViewCell {
             make.top.equalTo(contentView.snp.top)
             make.bottom.equalTo(contentView.snp.bottom)
         }
-
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(PictureBrowseCollectionViewCell.panGestureAction(gesture:)))
         
-        imageV.addGestureRecognizer(panGesture)
-        
-        
-        
+//        containerView.snp.makeConstraints { (make) in
+//            make.left.equalTo(contentView.snp.left)
+//            make.right.equalTo(contentView.snp.right)
+//            make.bottom.equalTo(contentView.snp.bottom)
+//            make.top.equalTo(contentView.snp.centerY).offset(150)
+//        }
+//
+//        describeLabel.snp.makeConstraints { (make) in
+//            make.left.equalTo(containerView.snp.left).offset(10)
+//            make.right.equalTo(containerView.snp.right).offset(-10)
+//            make.top.equalTo(containerView.snp.top).offset(10)
+//        }
         // 缩放时避免使用自动布局
 //        imageV.snp.makeConstraints { (make) in
 //            make.center.equalTo(scroll.snp.center)
@@ -70,34 +88,13 @@ class PictureBrowseCollectionViewCell: UICollectionViewCell {
     
     func configureCell(content: RecipeSteps) {
         imageV.kf.setImage(with: URL(string: content.step_img_src), placeholder: placeholderImg)
+//        describeLabel.text = "\(content.step_index). \(content.step_describe)"
     }
     
     func initlizeScale() {
         scroll.setZoomScale(1.0, animated: false)
     }
     
-    @objc func panGestureAction(gesture: UIPanGestureRecognizer) {
-        
-        if gesture.state == .changed {
-            let point = gesture.location(in: scroll)
-            let scale = 1 - fabs(point.y - scroll.center.y) / (kScreenHeight)
-            imageV.transform = CGAffineTransform.init(scaleX: scale, y: scale)
-            
-            let translationP = gesture.translation(in: scroll)
-            imageV.center = CGPoint(x: (gesture.view?.center.x ?? 0) + translationP.x, y: (gesture.view?.center.y ?? 0) + translationP.y)
-
-
-            gesture.setTranslation(CGPoint.zero, in: scroll)
-            
-        } else if gesture.state == .ended {
-            guard let gestureEnd = translationAction else {
-                return
-            }
-            gestureEnd()
-        }
-        
-        
-    }
 }
 
 

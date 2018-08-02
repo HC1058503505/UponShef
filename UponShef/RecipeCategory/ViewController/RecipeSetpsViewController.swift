@@ -12,21 +12,21 @@ import RxCocoa
 import RxDataSources
 import Kingfisher
 class RecipeSetpsViewController: UIViewController {
-    let disposeBag = DisposeBag()
-    
     var recipeStepModel: RecipeDetailModel?
     var recipeOutlineModel: RecipeOutlineModel?
     
-//    fileprivate let kNavgiationHeight = Tools.safeAreaInsetTop() + kNavgiationTabBarH + kStatusHeight
-//    fileprivate let recipeCoverH: CGFloat = 250.0
+    fileprivate let disposeBag = DisposeBag()
+    fileprivate var isPresented = false
+
+    fileprivate let recipeCoverImgView = UIImageView(frame: CGRect(x: 0, y: -250.0, width: kScreenWidth, height: 250))
+    fileprivate let recipePlayer = RecipeStepsPlayerView(frame: CGRect(x: 0, y: -200.0, width: kScreenWidth, height: 200))
     
-    let recipeCoverImgView = UIImageView(frame: CGRect(x: 0, y: -200.0, width: kScreenWidth, height: 250))
-    let recipePlayer = RecipeStepsPlayerView(frame: CGRect(x: 0, y: -200.0, width: kScreenWidth, height: 200))
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = recipeOutlineModel?.recipe_name
         let kNavgiationHeight = Tools.navigationHeight()
-        let recipeCoverH: CGFloat = (recipeOutlineModel?.recipe_isvideo)! ? 200.0 : 250.0
+        // (recipeOutlineModel?.recipe_isvideo)! ? 200.0 : 250.0
+        let recipeCoverH: CGFloat = 250.0
         view.backgroundColor = UIColor.white
         
         let tableView = UITableView(frame: view.bounds, style: UITableViewStyle.grouped)
@@ -35,16 +35,17 @@ class RecipeSetpsViewController: UIViewController {
         tableView.register(RecipeShiCaiTableViewCell.self, forCellReuseIdentifier: "RecipeShiCai")
         tableView.register(RecipeStepTableViewCell.self, forCellReuseIdentifier: "RecipeStep")
         
-        if (recipeOutlineModel?.recipe_isvideo)! {
-            tableView.addSubview(recipePlayer)
-        } else {
-            
-            // 添加菜谱封面图
-            recipeCoverImgView.contentMode = .scaleToFill
-            tableView.addSubview(recipeCoverImgView)
-            
-            tableView.rx.contentOffset.subscribe(onNext: {[weak self] (offset) in
-                
+//        if (recipeOutlineModel?.recipe_isvideo)! {
+//            tableView.addSubview(recipePlayer)
+//        } else {
+//
+//        }
+        // 添加菜谱封面图
+        recipeCoverImgView.contentMode = .scaleToFill
+        tableView.addSubview(recipeCoverImgView)
+        
+        tableView.rx.contentOffset
+            .subscribe(onNext: {[weak self] (offset) in
                 let pointy = offset.y
                 let underImageY = recipeCoverH + kNavgiationHeight
                 let scale = (-underImageY - pointy) / recipeCoverH
@@ -52,8 +53,7 @@ class RecipeSetpsViewController: UIViewController {
                     self?.recipeCoverImgView.frame = CGRect(x: -(kScreenWidth * scale) / 2.0, y: pointy + kNavgiationHeight, width: kScreenWidth * (1.0 + scale), height: recipeCoverH * (1 + scale))
                 }
             })
-                .disposed(by: disposeBag)
-        }
+            .disposed(by: disposeBag)
  
         let recipeDetailVM = RecipeDetailViewModel()
         let input = RecipeDetailViewModel.Input(recipeType: Observable<(String, String)>.just(((recipeOutlineModel?.recipe_type)!, (recipeOutlineModel?.recipe_id)!)))
@@ -72,14 +72,15 @@ class RecipeSetpsViewController: UIViewController {
                 tableView.reloadSections([1], with: UITableViewRowAnimation.none)
             }).start()
             
-            if recipeDetailM.recipe_cover.count == 0 {
-                
-                // video
-                self?.recipePlayer.sourcePlayer(url: URL(string: recipeDetailM.video_src)!)
-                self?.recipePlayer.play()
-            } else {
-                self?.recipeCoverImgView.kf.setImage(with: URL(string: recipeDetailM.recipe_cover), placeholder: placeholderImg)
-            }
+//            if recipeDetailM.recipe_cover.count == 0 {
+//                
+//                // video
+//                self?.recipePlayer.sourcePlayer(url: URL(string: recipeDetailM.video_src)!)
+//                self?.recipePlayer.play()
+//            } else {
+//            }
+            let imageURL = recipeDetailM.recipe_cover.count == 0 ? recipeDetailM.video_poster : recipeDetailM.recipe_cover
+            self?.recipeCoverImgView.kf.setImage(with: URL(string: imageURL), placeholder: placeholderImg)
            return Observable.just([
                 SectionModel(model: "shicai", items: recipeDetailM.shicais),
                 SectionModel(model: "steps", items: recipeDetailM.setps)
@@ -124,6 +125,8 @@ class RecipeSetpsViewController: UIViewController {
                 let pictureBrowseVC = RecipePictureBrowseViewController()
                 pictureBrowseVC.pictrueSteps = self?.recipeStepModel?.setps ?? [RecipeSteps]()
                 pictureBrowseVC.currentStepIndex = indexPath.row
+                let snapView = UIScreen.main.snapshotView(afterScreenUpdates: true)
+                pictureBrowseVC.snapView = snapView
                 self?.present(pictureBrowseVC, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)

@@ -40,6 +40,7 @@
 		08F12128210AF51000A6F25A /* RecipeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F12127210AF51000A6F25A /* RecipeDetailViewModel.swift */; };
 		08F1212A210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F12129210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift */; };
 		08F1212C210AFD6400A6F25A /* RecipeStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F1212B210AFD6400A6F25A /* RecipeStepTableViewCell.swift */; };
+		08F4F6722112F4BD00D465F7 /* UponShefActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4F6712112F4BD00D465F7 /* UponShefActivity.swift */; };
 		7D028F87E75DEEE957F6BFBF /* Pods_UponShef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647019A818D424EE26A1A159 /* Pods_UponShef.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		08F12127210AF51000A6F25A /* RecipeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewModel.swift; sourceTree = "<group>"; };
 		08F12129210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeShiCaiTableViewCell.swift; sourceTree = "<group>"; };
 		08F1212B210AFD6400A6F25A /* RecipeStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepTableViewCell.swift; sourceTree = "<group>"; };
+		08F4F6712112F4BD00D465F7 /* UponShefActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UponShefActivity.swift; sourceTree = "<group>"; };
 		647019A818D424EE26A1A159 /* Pods_UponShef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UponShef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F0552CA7A40B35605A83C5 /* Pods-UponShef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UponShef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UponShef/Pods-UponShef.debug.xcconfig"; sourceTree = "<group>"; };
 		B4F40BDD26566A267D75A0B5 /* Pods-UponShef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UponShef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UponShef/Pods-UponShef.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				081B3E2B20FDF3FA00927046 /* Base */,
 				081B3E3120FDF44100927046 /* Tools */,
 				081DDD2C20FF412B000E571C /* Sources */,
+				084CF9C02111977D0060C4A8 /* TranslateAnimation */,
 				081B3E2020FDF33300927046 /* Assets.xcassets */,
 				081B3E2220FDF33300927046 /* LaunchScreen.storyboard */,
 				081B3E2520FDF33300927046 /* Info.plist */,
@@ -165,6 +168,7 @@
 				08558F762100904800EC4A6F /* HTTPManager.swift */,
 				08B37C37210ABCB8009EE99C /* UponShefPotocol.swift */,
 				08B37C3B210AD5DA009EE99C /* UponShefTools.swift */,
+				08F4F6712112F4BD00D465F7 /* UponShefActivity.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -219,6 +223,13 @@
 				081B19BA210EF0B00060A949 /* PictureBrowseCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		084CF9C02111977D0060C4A8 /* TranslateAnimation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TranslateAnimation;
 			sourceTree = "<group>";
 		};
 		08558F6C21004F6A00EC4A6F /* HotCategory */ = {
@@ -419,6 +430,7 @@
 				081B3E3F20FDF4D600927046 /* MoreViewController.swift in Sources */,
 				081B19B9210EE3470060A949 /* RecipePictureBrowseViewController.swift in Sources */,
 				081B3E2F20FDF3FA00927046 /* UponShefTabBarViewController.swift in Sources */,
+				08F4F6722112F4BD00D465F7 /* UponShefActivity.swift in Sources */,
 				0821E9C221085492002F45A9 /* HotCategoryViewController.swift in Sources */,
 				08558F752100789C00EC4A6F /* CategoryViewModel.swift in Sources */,
 				081B3E3D20FDF4CB00927046 /* RecipeCategoryViewController.swift in Sources */,

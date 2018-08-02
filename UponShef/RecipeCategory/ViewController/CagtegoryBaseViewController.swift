@@ -91,9 +91,9 @@ extension CagtegoryBaseViewController : UITableViewDataSource, UITableViewDelega
         selectedModel.isSelected = true
         
         let lastSelectedModel = categoryModels[tempSelectedIndexPath.row]
-        lastSelectedModel.isSelected = false
-        
+        lastSelectedModel.isSelected = indexPath.row == tempSelectedIndexPath.row
         tableView.reloadRows(at: [indexPath, tempSelectedIndexPath], with: UITableViewRowAnimation.none)
+        tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
         tempSelectedIndexPath = indexPath
         detailCollection.reloadData()
     }
@@ -145,23 +145,23 @@ extension CagtegoryBaseViewController: UICollectionViewDataSource, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let category = categoryModels[tempSelectedIndexPath.row]
-        
+        let recipeListVC = RecipeListViewController()
         if category.categorySubs.isEmpty {
             
             guard let meterial = category.meterialSubs[indexPath.section].values.first else {
                 return
             }
            
-            print(meterial[indexPath.row].categorySubTitle)
-            return
+            recipeListVC.title = meterial[indexPath.row + 1].categorySubTitle
+            let http = meterial[indexPath.row].categorySubHref.components(separatedBy: "/")
+            recipeListVC.recipeIdentifier = http[http.count - 2]
+        } else {
+            recipeListVC.title = category.categorySubs[indexPath.row].categorySubTitle
+            let http = category.categorySubs[indexPath.row].categorySubHref.components(separatedBy: "/")
+            recipeListVC.recipeIdentifier = http[http.count - 2]
         }
         
-        print(category.categorySubs[indexPath.row].categorySubTitle)
-        
-        let recipeListVC = RecipeListViewController()
-        recipeListVC.title = category.categorySubs[indexPath.row].categorySubTitle
-        let http = category.categorySubs[indexPath.row].categorySubHref.components(separatedBy: "/")
-        recipeListVC.recipeIdentifier = http[http.count - 2]
+        recipeListVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(recipeListVC, animated: true)
     }
     

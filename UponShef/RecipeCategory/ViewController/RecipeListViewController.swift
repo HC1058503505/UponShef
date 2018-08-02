@@ -59,9 +59,7 @@ class RecipeListViewController: UIViewController {
             .subscribe(onNext: {[weak self] (element) in
   
                 let recipeStepsVC = RecipeSetpsViewController()
-//                recipeStepsVC.recipeType = Observable<(String, String)>.just((element.recipe_type, element.recipe_id))
-//                recipeStepsVC.title = element.recipe_name
-//                recipeStepsVC.isVideo = element.recipe_isvideo
+                recipeStepsVC.hidesBottomBarWhenPushed = true
                 recipeStepsVC.recipeOutlineModel = element
                 self?.navigationController?.pushViewController(recipeStepsVC, animated: true)
             })

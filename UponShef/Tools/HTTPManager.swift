@@ -11,6 +11,12 @@ import RxAlamofire
 import RxSwift
 
 
+enum UponShefError: Error {
+    case urlNotExist
+    case dataFormatWrong
+    case failedConnectServer
+}
+
 class HTTPManager {
     let disposeBag = DisposeBag()
     var responseObserver = Observable<[HotCategoryModel]>.empty()
@@ -19,21 +25,25 @@ class HTTPManager {
     static func categoryList(type: String) -> Observable<[HotCategoryModel]>{
 
         guard let url = URL(string: baseURL + "category_list/" + type) else {
-            return Observable<[HotCategoryModel]>.empty()
+            return Observable<[HotCategoryModel]>.error(UponShefError.urlNotExist)
         }
 
         return RxAlamofire.requestJSON(.get, url)
             .flatMap({ (response, result) -> Observable<[HotCategoryModel]> in
+                guard response.statusCode == 200 else {
+                    return Observable<[HotCategoryModel]>.error(UponShefError.failedConnectServer)
+                }
+                
                 guard let resultJson = result as? [[String : Any]] else {
-                    return Observable<[HotCategoryModel]>.empty()
+                    return Observable<[HotCategoryModel]>.error(UponShefError.dataFormatWrong)
                 }
                 
                 guard let resultSubs = resultJson.first else {
-                    return Observable<[HotCategoryModel]>.empty()
+                    return Observable<[HotCategoryModel]>.error(UponShefError.dataFormatWrong)
                 }
                 
                 guard let subs = resultSubs["subs"] as? [[String : Any]] else {
-                    return Observable<[HotCategoryModel]>.empty()
+                    return Observable<[HotCategoryModel]>.error(UponShefError.dataFormatWrong)
                 }
                 
                 var categories = [HotCategoryModel]()
@@ -51,17 +61,18 @@ class HTTPManager {
                     return Disposables.create()
                 })
             })
+
     }
     
     static func recipeList(type: String, page: Int) -> Observable<[RecipeOutlineModel]> {
         guard let url = URL(string: baseURL + "caipulist/\(type)/page/\(page)") else {
-            return Observable<[RecipeOutlineModel]>.empty()
+            return Observable<[RecipeOutlineModel]>.error(UponShefError.urlNotExist)
         }
         
         return RxAlamofire.requestJSON(.get, url)
             .flatMap({ (response, result) -> Observable<[RecipeOutlineModel]> in
                 guard let recipes = result as? [[String : Any]] else {
-                    return Observable<[RecipeOutlineModel]>.empty()
+                    return Observable<[RecipeOutlineModel]>.error(UponShefError.dataFormatWrong)
                 }
 
                 var recipeList = [RecipeOutlineModel]()
@@ -103,13 +114,13 @@ class HTTPManager {
     
     static func recipeSteps(type: String, identifier: String) -> Observable<RecipeDetailModel> {
         guard let url = URL(string: baseURL + "caipulist/\(type)/identifier/\(identifier)") else {
-            return Observable<RecipeDetailModel>.empty()
+            return Observable<RecipeDetailModel>.error(UponShefError.urlNotExist)
         }
         
         return RxAlamofire.requestJSON(.get, url).flatMap { (response, result) -> Observable<RecipeDetailModel> in
             
             guard let steps = result as? [String : Any] else {
-                return Observable<RecipeDetailModel>.empty()
+                return Observable<RecipeDetailModel>.error(UponShefError.dataFormatWrong)
             }
             
             let recipeDetailM = RecipeDetailModel.recipeDetail(content: steps)

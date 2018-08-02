@@ -37,6 +37,10 @@ class RecipeCategoryViewController: UIViewController {
     let scroll = UIScrollView(frame: CGRect(x: 0, y: Tools.navigationHeight(), width: kScreenWidth, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()))
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // tapGesture
+
+        
         view.backgroundColor = UIColor.white
         navigationItem.title = ""
         let segment = UISegmentedControl(items: ["热门","常见","食材","健康"]).then { segmentContol in
