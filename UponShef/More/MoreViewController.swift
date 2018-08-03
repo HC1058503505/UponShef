@@ -7,13 +7,19 @@
 //
 
 import UIKit
-
-class MoreViewController: UIViewController {
+import Eureka
+class MoreViewController: FormViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
+        
+        form +++ Section()
+            <<< AccountRow(){ row in
+                row.title = "SunnyHCong"
+            }
+        
     }
 
     override func didReceiveMemoryWarning() {

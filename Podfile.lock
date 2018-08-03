@@ -1,10 +1,17 @@
 PODS:
   - Alamofire (4.7.2)
   - Differentiator (3.0.2)
+  - Eureka (4.1.1)
   - Kingfisher (4.7.0)
+  - Moya (11.0.2):
+    - Moya/Core (= 11.0.2)
+  - Moya/Core (11.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
+  - Result (3.2.4)
   - RxAlamofire (4.2.0):
     - RxAlamofire/Core (= 4.2.0)
   - RxAlamofire/Core (4.2.0):
@@ -21,7 +28,9 @@ PODS:
   - Then (2.3.0)
 
 DEPENDENCIES:
+  - Eureka
   - Kingfisher
+  - Moya
   - R.swift
   - RxAlamofire
   - RxCocoa
@@ -34,9 +43,12 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Differentiator
+    - Eureka
     - Kingfisher
+    - Moya
     - R.swift
     - R.swift.Library
+    - Result
     - RxAlamofire
     - RxCocoa
     - RxDataSources
@@ -47,9 +59,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Differentiator: a87be69eba49ec4ab460c7671143ee3a9eececfd
+  Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
+  Moya: a725035953bc1c0eb1be505ab903984501d82440
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxAlamofire: 87a9c588541210cc3e4a1f843ccc3ecf3eb98b31
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
   RxDataSources: cb7c31e652a87ebb919da45f716bbb87b3765f6b
@@ -57,6 +72,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
 
-PODFILE CHECKSUM: 68dcc0cb4a312e1607a8ef7383b7607e21565050
+PODFILE CHECKSUM: 1a4278e1988260cdafa49e198967b1490eedbc7c
 
 COCOAPODS: 1.5.0

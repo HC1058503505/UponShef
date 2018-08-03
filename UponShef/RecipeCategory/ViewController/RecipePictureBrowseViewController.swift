@@ -47,7 +47,7 @@ class RecipePictureBrowseViewController: UIViewController {
     
     let shareBtn = UIButton(type: .custom).then { (shareButton) in
         shareButton.backgroundColor = UIColor.clear
-        shareButton.setImage(UIImage(named: "more"), for: UIControlState.normal)
+        shareButton.setImage(R.image.more(), for: UIControlState.normal)
     }
     
     

@@ -14,4 +14,6 @@ target 'UponShef' do
   pod 'R.swift'
   pod 'Kingfisher'
   pod 'RxDataSources'
+  pod 'Eureka'
+  pod 'Moya'
 end

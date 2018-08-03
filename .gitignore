@@ -5,6 +5,9 @@
 ## Mac generated
 .DS_store
 
+## R.Swift generated
+*.generated.swift
+
 ## Build generated
 build/
 DerivedData/

@@ -26,6 +26,7 @@
 		0821E9C021085482002F45A9 /* NormalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821E9BF21085482002F45A9 /* NormalViewController.swift */; };
 		0821E9C221085492002F45A9 /* HotCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821E9C121085492002F45A9 /* HotCategoryViewController.swift */; };
 		0821E9C421085EFF002F45A9 /* CagtegoryBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0821E9C321085EFF002F45A9 /* CagtegoryBaseViewController.swift */; };
+		0829667F21143E2C00C13891 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0829667E21143E2B00C13891 /* R.generated.swift */; };
 		08558F7321006EA900EC4A6F /* CategoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08558F7221006EA900EC4A6F /* CategoryListModel.swift */; };
 		08558F752100789C00EC4A6F /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08558F742100789C00EC4A6F /* CategoryViewModel.swift */; };
 		08558F772100904800EC4A6F /* HTTPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08558F762100904800EC4A6F /* HTTPManager.swift */; };
@@ -66,6 +67,7 @@
 		0821E9BF21085482002F45A9 /* NormalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalViewController.swift; sourceTree = "<group>"; };
 		0821E9C121085492002F45A9 /* HotCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotCategoryViewController.swift; sourceTree = "<group>"; };
 		0821E9C321085EFF002F45A9 /* CagtegoryBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CagtegoryBaseViewController.swift; sourceTree = "<group>"; };
+		0829667E21143E2B00C13891 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = R.generated.swift; path = UponShef/Sources/R.generated.swift; sourceTree = SOURCE_ROOT; };
 		08558F7221006EA900EC4A6F /* CategoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModel.swift; sourceTree = "<group>"; };
 		08558F742100789C00EC4A6F /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		08558F762100904800EC4A6F /* HTTPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPManager.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		081B3E3120FDF44100927046 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				0829668021144BE200C13891 /* CustomEureka */,
 				081B3E3220FDF46000927046 /* Constant.swift */,
 				081B3E3320FDF46000927046 /* Extension.swift */,
 				08558F762100904800EC4A6F /* HTTPManager.swift */,
@@ -207,6 +210,7 @@
 		081DDD2C20FF412B000E571C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0829667E21143E2B00C13891 /* R.generated.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -223,6 +227,13 @@
 				081B19BA210EF0B00060A949 /* PictureBrowseCollectionViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0829668021144BE200C13891 /* CustomEureka */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomEureka;
 			sourceTree = "<group>";
 		};
 		084CF9C02111977D0060C4A8 /* TranslateAnimation */ = {
@@ -303,6 +314,7 @@
 			buildConfigurationList = 081B3E2820FDF33300927046 /* Build configuration list for PBXNativeTarget "UponShef" */;
 			buildPhases = (
 				F58326AE30C0FE8A742706A2 /* [CP] Check Pods Manifest.lock */,
+				0829667D21143DD400C13891 /* ShellScript */,
 				081B3E1220FDF33200927046 /* Sources */,
 				081B3E1320FDF33200927046 /* Frameworks */,
 				081B3E1420FDF33200927046 /* Resources */,
@@ -372,8 +384,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-UponShef/Pods-UponShef-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -385,8 +400,11 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
@@ -398,6 +416,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UponShef/Pods-UponShef-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		0829667D21143DD400C13891 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"";
 		};
 		F58326AE30C0FE8A742706A2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -444,6 +475,7 @@
 				0821E9C421085EFF002F45A9 /* CagtegoryBaseViewController.swift in Sources */,
 				08558F7321006EA900EC4A6F /* CategoryListModel.swift in Sources */,
 				08B37C40210AD9E4009EE99C /* RecipeSetpsViewController.swift in Sources */,
+				0829667F21143E2C00C13891 /* R.generated.swift in Sources */,
 				08558F772100904800EC4A6F /* HTTPManager.swift in Sources */,
 				081B3E2E20FDF3FA00927046 /* UponShefNavigationController.swift in Sources */,
 				08B37C3A210AC4E9009EE99C /* RecipeTableViewCell.swift in Sources */,
