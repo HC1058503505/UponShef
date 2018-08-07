@@ -30,7 +30,7 @@ class RecipePictureBrowseViewController: UIViewController {
     
     fileprivate let collectionV: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout().then { (flowL) in
-            flowL.itemSize = CGSize(width: kScreenWidth, height: kScreenHeight)
+            flowL.itemSize = CGSize(width: Constant.kScreenWidth, height: Constant.kScreenHeight)
             flowL.minimumLineSpacing = 0
             flowL.minimumInteritemSpacing = 0
             flowL.scrollDirection = .horizontal
@@ -173,7 +173,7 @@ extension RecipePictureBrowseViewController {
         
         collectionV.rx.didEndDecelerating
             .subscribe(onNext: {
-                let row = Int(self.collectionV.contentOffset.x / kScreenWidth)
+                let row = Int(self.collectionV.contentOffset.x / Constant.kScreenWidth)
                 let step = self.pictrueSteps[row]
                 self.describeLabel.text = "\(step.step_index)/\(self.pictrueSteps.count)、 \(step.step_describe)"
             })
@@ -186,7 +186,7 @@ extension RecipePictureBrowseViewController {
     
     @objc func panGestureAction(panGesture: UIPanGestureRecognizer) {
         if panGesture.state == .changed {
-            let reduce = fabs((panGesture.view?.center.y ?? 0) - view.center.y) / (kScreenHeight * 0.5)
+            let reduce = fabs((panGesture.view?.center.y ?? 0) - view.center.y) / (Constant.kScreenHeight * 0.5)
             let scale = 1 - reduce
             
             panGesture.view?.transform = CGAffineTransform.init(scaleX: scale, y: scale)

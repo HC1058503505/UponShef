@@ -18,8 +18,8 @@ class RecipeSetpsViewController: UIViewController {
     fileprivate let disposeBag = DisposeBag()
     fileprivate var isPresented = false
 
-    fileprivate let recipeCoverImgView = UIImageView(frame: CGRect(x: 0, y: -250.0, width: kScreenWidth, height: 250))
-    fileprivate let recipePlayer = RecipeStepsPlayerView(frame: CGRect(x: 0, y: -200.0, width: kScreenWidth, height: 200))
+    fileprivate let recipeCoverImgView = UIImageView(frame: CGRect(x: 0, y: -250.0, width: Constant.kScreenWidth, height: 250))
+    fileprivate let recipePlayer = RecipeStepsPlayerView(frame: CGRect(x: 0, y: -200.0, width: Constant.kScreenWidth, height: 200))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class RecipeSetpsViewController: UIViewController {
                 let underImageY = recipeCoverH + kNavgiationHeight
                 let scale = (-underImageY - pointy) / recipeCoverH
                 if pointy <= -underImageY {
-                    self?.recipeCoverImgView.frame = CGRect(x: -(kScreenWidth * scale) / 2.0, y: pointy + kNavgiationHeight, width: kScreenWidth * (1.0 + scale), height: recipeCoverH * (1 + scale))
+                    self?.recipeCoverImgView.frame = CGRect(x: -(Constant.kScreenWidth * scale) / 2.0, y: pointy + kNavgiationHeight, width: Constant.kScreenWidth * (1.0 + scale), height: recipeCoverH * (1 + scale))
                 }
             })
             .disposed(by: disposeBag)
@@ -80,7 +80,7 @@ class RecipeSetpsViewController: UIViewController {
 //            } else {
 //            }
             let imageURL = recipeDetailM.recipe_cover.count == 0 ? recipeDetailM.video_poster : recipeDetailM.recipe_cover
-            self?.recipeCoverImgView.kf.setImage(with: URL(string: imageURL), placeholder: placeholderImg)
+            self?.recipeCoverImgView.kf.setImage(with: URL(string: imageURL), placeholder: Constant.placeholderImg)
            return Observable.just([
                 SectionModel(model: "shicai", items: recipeDetailM.shicais),
                 SectionModel(model: "steps", items: recipeDetailM.setps)
@@ -114,14 +114,13 @@ class RecipeSetpsViewController: UIViewController {
         items.bind(to: tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
-        tableView.rx.modelSelected(RecipeSteps.self)
-            .subscribe(onNext: { (_) in
-                
-            })
-            .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
             .subscribe(onNext: {[weak self] (indexPath) in
+                if indexPath.section == 0 {
+                    return
+                }
+                
                 let pictureBrowseVC = RecipePictureBrowseViewController()
                 pictureBrowseVC.pictrueSteps = self?.recipeStepModel?.setps ?? [RecipeSteps]()
                 pictureBrowseVC.currentStepIndex = indexPath.row

@@ -12,7 +12,7 @@ import UIKit
 
 extension String {
     static func height(str: String, font: UIFont) -> CGFloat {
-        return (str as NSString).boundingRect(with: CGSize(width: kScreenWidth - 20, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : font], context: nil).size.height
+        return (str as NSString).boundingRect(with: CGSize(width: Constant.kScreenWidth - 20, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font : font], context: nil).size.height
     }
 }
 

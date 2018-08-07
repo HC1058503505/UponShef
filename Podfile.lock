@@ -3,11 +3,12 @@ PODS:
   - Differentiator (3.0.2)
   - Eureka (4.1.1)
   - Kingfisher (4.7.0)
-  - Moya (11.0.2):
-    - Moya/Core (= 11.0.2)
   - Moya/Core (11.0.2):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - Moya/RxSwift (11.0.2):
+    - Moya/Core
+    - RxSwift (~> 4.0)
   - R.swift (4.0.0):
     - R.swift.Library (~> 4.0.0)
   - R.swift.Library (4.0.0)
@@ -30,7 +31,7 @@ PODS:
 DEPENDENCIES:
   - Eureka
   - Kingfisher
-  - Moya
+  - Moya/RxSwift
   - R.swift
   - RxAlamofire
   - RxCocoa
@@ -72,6 +73,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
 
-PODFILE CHECKSUM: 1a4278e1988260cdafa49e198967b1490eedbc7c
+PODFILE CHECKSUM: 6c380fadaa3c7caf5423b9c52265264737caab35
 
 COCOAPODS: 1.5.0

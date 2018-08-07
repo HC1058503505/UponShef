@@ -50,7 +50,7 @@ class RecipeStepTableViewCell: UITableViewCell {
     }
     
     func configureCell(setps: RecipeSteps) {
-        recipeImgView.kf.setImage(with: URL(string: setps.step_img_src), placeholder: placeholderImg)
+        recipeImgView.kf.setImage(with: URL(string: setps.step_img_src), placeholder: Constant.placeholderImg)
         recipeStepL.text = setps.step_describe
     }
 }

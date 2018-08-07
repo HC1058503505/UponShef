@@ -20,7 +20,7 @@ class UponShefTabBarViewController: UITabBarController {
     }
     
     func appearance() {
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : kThemeColor], for: UIControlState.selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : Constant.kThemeColor], for: UIControlState.selected)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor : UIColor.black], for: UIControlState.normal)
     }
     

@@ -21,7 +21,7 @@ struct RecipeDetailViewModel : ViewModelType {
     
     func transform(input: RecipeDetailViewModel.Input) -> RecipeDetailViewModel.Output {
         let output = input.recipeType.flatMap { (type, identifier) -> Observable<RecipeDetailModel> in
-            return HTTPManager.recipeSteps(type: type, identifier: identifier)
+            return MyProvider.recipeSteps(type: type, identifier: identifier)
         }
         
         return Output(recipeDetail: output)

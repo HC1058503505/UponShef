@@ -15,7 +15,7 @@ class CategoryListTableViewCell: UITableViewCell {
     }
     
     let indicatorV = UIView().then { (view) in
-        view.backgroundColor = kThemeLightGrayColor
+        view.backgroundColor = Constant.kThemeLightGrayColor
     }
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -48,21 +48,22 @@ class CategoryListTableViewCell: UITableViewCell {
     }
     
     
-    func configureCell(content: HotCategoryModel) {
-        titleL.text = content.categoryTitle
-        itemSelected = content.isSelected
+    func configureCell(content: MealsSubModel?, selected: Bool) {
+        guard let mealModel = content else { return }
+        titleL.text = mealModel.categoryTitle
+        itemSelected = selected
     }
     
  
    fileprivate var itemSelected: Bool = false {
         willSet {
             if  newValue {
-                titleL.textColor = kThemeColor
-                indicatorV.backgroundColor = kThemeColor
-                contentView.backgroundColor = kThemeLightGrayColor
+                titleL.textColor = Constant.kThemeColor
+                indicatorV.backgroundColor = Constant.kThemeColor
+                contentView.backgroundColor = Constant.kThemeLightGrayColor
             } else {
                 titleL.textColor = UIColor.black
-                indicatorV.backgroundColor = kThemeLightGrayColor
+                indicatorV.backgroundColor = Constant.kThemeLightGrayColor
                 contentView.backgroundColor = UIColor.white
             }
         }

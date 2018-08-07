@@ -40,10 +40,10 @@ struct Tools  {
     }
     
     static func navigationHeight() -> CGFloat {
-        return Tools.safeAreaInsetTop() + kNavgiationTabBarH
+        return Tools.safeAreaInsetTop() + Constant.kNavgiationTabBarH
     }
     
     static func tabBarHeight() -> CGFloat {
-        return Tools.safeAreaInsetBottom() + kNavgiationTabBarH
+        return Tools.safeAreaInsetBottom() + Constant.kNavgiationTabBarH
     }
 }

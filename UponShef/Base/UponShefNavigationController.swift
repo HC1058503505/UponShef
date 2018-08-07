@@ -14,9 +14,9 @@ class UponShefNavigationController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationBar.tintColor = kThemeColor
+        navigationBar.tintColor = Constant.kThemeColor
         
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : kThemeColor]
+        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : Constant.kThemeColor]
     }
 
     override func didReceiveMemoryWarning() {

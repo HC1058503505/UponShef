@@ -26,8 +26,8 @@ class PictureBrowseCollectionViewCell: UICollectionViewCell {
     
     fileprivate let imageV = UIImageView().then { (imageView) in
         imageView.isUserInteractionEnabled = true
-        imageView.frame = CGRect(x: 0, y: 0, width: kScreenWidth, height: 250)
-        imageView.center = CGPoint(x: kScreenWidth * 0.5, y: kScreenHeight * 0.5)
+        imageView.frame = CGRect(x: 0, y: 0, width: Constant.kScreenWidth, height: 250)
+        imageView.center = CGPoint(x: Constant.kScreenWidth * 0.5, y: Constant.kScreenHeight * 0.5)
     }
     
 //    fileprivate let describeLabel = UILabel().then { (describe) in
@@ -87,7 +87,7 @@ class PictureBrowseCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(content: RecipeSteps) {
-        imageV.kf.setImage(with: URL(string: content.step_img_src), placeholder: placeholderImg)
+        imageV.kf.setImage(with: URL(string: content.step_img_src), placeholder: Constant.placeholderImg)
 //        describeLabel.text = "\(content.step_index). \(content.step_describe)"
     }
     

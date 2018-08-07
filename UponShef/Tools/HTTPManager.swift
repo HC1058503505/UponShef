@@ -19,53 +19,38 @@ enum UponShefError: Error {
 
 class HTTPManager {
     let disposeBag = DisposeBag()
-    var responseObserver = Observable<[HotCategoryModel]>.empty()
+    var responseObserver = Observable<MealsCategoryModel>.empty()
 
     
-    static func categoryList(type: String) -> Observable<[HotCategoryModel]>{
+    static func categoryList(type: String) -> Observable<MealsCategoryModel>{
 
-        guard let url = URL(string: baseURL + "category_list/" + type) else {
-            return Observable<[HotCategoryModel]>.error(UponShefError.urlNotExist)
+        guard let url = URL(string: Constant.baseURL + "category_list/" + type) else {
+            return Observable<MealsCategoryModel>.error(UponShefError.urlNotExist)
         }
 
         return RxAlamofire.requestJSON(.get, url)
-            .flatMap({ (response, result) -> Observable<[HotCategoryModel]> in
+            .flatMap({ (response, result) -> Observable<MealsCategoryModel> in
                 guard response.statusCode == 200 else {
-                    return Observable<[HotCategoryModel]>.error(UponShefError.failedConnectServer)
+                    return Observable<MealsCategoryModel>.error(UponShefError.failedConnectServer)
                 }
+                let jsonDecoder = JSONDecoder()
+                guard let jsonData = try? JSONSerialization.data(withJSONObject: result, options: []) else {
+                    return Observable<MealsCategoryModel>.error(UponShefError.dataFormatWrong)
+                }
+                guard let model = try? jsonDecoder.decode(MealsCategoryModel.self, from: jsonData) else {
+                    return Observable<MealsCategoryModel>.error(UponShefError.dataFormatWrong)
+                }
+                return Observable<MealsCategoryModel>.create({ (category) -> Disposable in
+                            category.onNext(model)
+                            return Disposables.create()
+                        })
                 
-                guard let resultJson = result as? [[String : Any]] else {
-                    return Observable<[HotCategoryModel]>.error(UponShefError.dataFormatWrong)
-                }
-                
-                guard let resultSubs = resultJson.first else {
-                    return Observable<[HotCategoryModel]>.error(UponShefError.dataFormatWrong)
-                }
-                
-                guard let subs = resultSubs["subs"] as? [[String : Any]] else {
-                    return Observable<[HotCategoryModel]>.error(UponShefError.dataFormatWrong)
-                }
-                
-                var categories = [HotCategoryModel]()
-                var tempIndex = 0
-                for sub in subs {
-                    let category = HotCategoryModel(hotCategory: sub)
-                    if tempIndex == 0 {
-                        category.isSelected = true
-                    }
-                    categories.append(category)
-                    tempIndex = tempIndex + 1
-                }
-                return Observable<[HotCategoryModel]>.create({ (category) -> Disposable in
-                    category.onNext(categories)
-                    return Disposables.create()
-                })
             })
 
     }
     
     static func recipeList(type: String, page: Int) -> Observable<[RecipeOutlineModel]> {
-        guard let url = URL(string: baseURL + "caipulist/\(type)/page/\(page)") else {
+        guard let url = URL(string: Constant.baseURL + "caipulist/\(type)/page/\(page)") else {
             return Observable<[RecipeOutlineModel]>.error(UponShefError.urlNotExist)
         }
         
@@ -113,7 +98,7 @@ class HTTPManager {
     
     
     static func recipeSteps(type: String, identifier: String) -> Observable<RecipeDetailModel> {
-        guard let url = URL(string: baseURL + "caipulist/\(type)/identifier/\(identifier)") else {
+        guard let url = URL(string: Constant.baseURL + "caipulist/\(type)/identifier/\(identifier)") else {
             return Observable<RecipeDetailModel>.error(UponShefError.urlNotExist)
         }
         

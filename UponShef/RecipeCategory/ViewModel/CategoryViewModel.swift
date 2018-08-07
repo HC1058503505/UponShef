@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxAlamofire
 import RxCocoa
-
+import Moya
 
 
 struct CategoryViewModel : ViewModelType{
@@ -20,15 +20,19 @@ struct CategoryViewModel : ViewModelType{
     }
     
     struct Output {
-        let categoryList: Observable<[HotCategoryModel]>
+        let categoryList: Observable<MealsCategoryModel>
         
     }
     
     func transform(input: CategoryViewModel.Input) -> CategoryViewModel.Output {
-        let output = input.categoryType.flatMap { (categoryType) -> Observable<[HotCategoryModel]> in
+        let output = input.categoryType.flatMap { (categoryType) -> Observable<MealsCategoryModel> in
             let type = CategoryListType.categoryType(index: categoryType)
-
-            return HTTPManager.categoryList(type: type)
+            
+            return MyProvider.categoryList(type: type)
+            
+            
+            
+//            return HTTPManager.categoryList(type: type)
         }
         return Output(categoryList: output)
     }

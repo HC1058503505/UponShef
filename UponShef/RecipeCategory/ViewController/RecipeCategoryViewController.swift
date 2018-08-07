@@ -34,7 +34,7 @@ enum CategoryListType: Int {
 class RecipeCategoryViewController: UIViewController {
 
     let disposeBag = DisposeBag()
-    let scroll = UIScrollView(frame: CGRect(x: 0, y: Tools.navigationHeight(), width: kScreenWidth, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()))
+    let scroll = UIScrollView(frame: CGRect(x: 0, y: Tools.navigationHeight(), width: Constant.kScreenWidth, height: Constant.kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()))
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,7 +44,7 @@ class RecipeCategoryViewController: UIViewController {
         view.backgroundColor = UIColor.white
         navigationItem.title = ""
         let segment = UISegmentedControl(items: ["热门","常见","食材","健康"]).then { segmentContol in
-            segmentContol.center = CGPoint(x: kScreenWidth * 0.5, y: kNavgiationTabBarH * 0.5)
+            segmentContol.center = CGPoint(x: Constant.kScreenWidth * 0.5, y: Constant.kNavgiationTabBarH * 0.5)
             segmentContol.selectedSegmentIndex = 0
         }
         navigationController?.navigationBar.addSubview(segment)
@@ -55,16 +55,16 @@ class RecipeCategoryViewController: UIViewController {
         scroll.showsVerticalScrollIndicator = false
         scroll.showsHorizontalScrollIndicator = false
         view.addSubview(scroll)
-        scroll.contentSize = CGSize(width: kScreenWidth * 4.0, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight())
+        scroll.contentSize = CGSize(width: Constant.kScreenWidth * 4.0, height: Constant.kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight())
         
         segment.rx.selectedSegmentIndex.asObservable()
             .subscribe(onNext: {[weak self] (segmentIndex) in
-                    self?.scroll.setContentOffset(CGPoint(x: kScreenWidth * CGFloat(segmentIndex), y: 0), animated: false)
+                    self?.scroll.setContentOffset(CGPoint(x: Constant.kScreenWidth * CGFloat(segmentIndex), y: 0), animated: false)
             })
             .disposed(by: disposeBag)
 
         scroll.rx.didEndDecelerating.asObservable().subscribe(onNext: {[weak self] _ in
-            segment.selectedSegmentIndex = Int((self?.scroll.contentOffset.x)! / kScreenWidth)
+            segment.selectedSegmentIndex = Int((self?.scroll.contentOffset.x)! / Constant.kScreenWidth)
         })
         .disposed(by: disposeBag)
         
@@ -77,7 +77,7 @@ class RecipeCategoryViewController: UIViewController {
         
         for vc in vcs {
             vc.segmentIndex = Observable<Int>.of(vcs.index(of: vc) ?? 0)
-            vc.view.frame = CGRect(x:kScreenWidth * CGFloat(vcs.index(of: vc) ?? 0) , y: 0, width: kScreenWidth, height: kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight())
+            vc.view.frame = CGRect(x:Constant.kScreenWidth * CGFloat(vcs.index(of: vc) ?? 0) , y: 0, width: Constant.kScreenWidth, height: Constant.kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight())
             scroll.addSubview(vc.view)
             addChildViewController(vc)
         }

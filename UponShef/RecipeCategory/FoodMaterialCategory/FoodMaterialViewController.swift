@@ -14,7 +14,7 @@ class FoodMaterialViewController: CagtegoryBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        view.backgroundColor = kThemeColor
+        view.backgroundColor = Constant.kThemeColor
     }
 
     override func didReceiveMemoryWarning() {

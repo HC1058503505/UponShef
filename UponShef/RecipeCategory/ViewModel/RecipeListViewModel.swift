@@ -22,7 +22,7 @@ struct RecipeListViewModel: ViewModelType {
     
     func transform(input: RecipeListViewModel.Input) -> RecipeListViewModel.Output {
         let output = input.recipeType.flatMap { (recipeType, page) -> Observable<[RecipeOutlineModel]> in
-            return HTTPManager.recipeList(type: recipeType, page: page)
+            return MyProvider.recipeList(type: recipeType, page: page)
         }
         
         return Output(recipeList: output)

@@ -42,6 +42,9 @@
 		08F1212A210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F12129210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift */; };
 		08F1212C210AFD6400A6F25A /* RecipeStepTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F1212B210AFD6400A6F25A /* RecipeStepTableViewCell.swift */; };
 		08F4F6722112F4BD00D465F7 /* UponShefActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F4F6712112F4BD00D465F7 /* UponShefActivity.swift */; };
+		08FB48ED21181F4400A363D7 /* MyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB48EC21181F4400A363D7 /* MyService.swift */; };
+		08FB48EF211821B600A363D7 /* MyServiceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB48EE211821B600A363D7 /* MyServiceExtension.swift */; };
+		08FB48F12118364C00A363D7 /* MyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08FB48F02118364C00A363D7 /* MyProvider.swift */; };
 		7D028F87E75DEEE957F6BFBF /* Pods_UponShef.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 647019A818D424EE26A1A159 /* Pods_UponShef.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +86,9 @@
 		08F12129210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeShiCaiTableViewCell.swift; sourceTree = "<group>"; };
 		08F1212B210AFD6400A6F25A /* RecipeStepTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStepTableViewCell.swift; sourceTree = "<group>"; };
 		08F4F6712112F4BD00D465F7 /* UponShefActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UponShefActivity.swift; sourceTree = "<group>"; };
+		08FB48EC21181F4400A363D7 /* MyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyService.swift; sourceTree = "<group>"; };
+		08FB48EE211821B600A363D7 /* MyServiceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyServiceExtension.swift; sourceTree = "<group>"; };
+		08FB48F02118364C00A363D7 /* MyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProvider.swift; sourceTree = "<group>"; };
 		647019A818D424EE26A1A159 /* Pods_UponShef.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UponShef.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83F0552CA7A40B35605A83C5 /* Pods-UponShef.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UponShef.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UponShef/Pods-UponShef.debug.xcconfig"; sourceTree = "<group>"; };
 		B4F40BDD26566A267D75A0B5 /* Pods-UponShef.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UponShef.release.xcconfig"; path = "Pods/Target Support Files/Pods-UponShef/Pods-UponShef.release.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +175,9 @@
 				081B3E3220FDF46000927046 /* Constant.swift */,
 				081B3E3320FDF46000927046 /* Extension.swift */,
 				08558F762100904800EC4A6F /* HTTPManager.swift */,
+				08FB48F02118364C00A363D7 /* MyProvider.swift */,
+				08FB48EC21181F4400A363D7 /* MyService.swift */,
+				08FB48EE211821B600A363D7 /* MyServiceExtension.swift */,
 				08B37C37210ABCB8009EE99C /* UponShefPotocol.swift */,
 				08B37C3B210AD5DA009EE99C /* UponShefTools.swift */,
 				08F4F6712112F4BD00D465F7 /* UponShefActivity.swift */,
@@ -472,6 +481,7 @@
 				08F1212C210AFD6400A6F25A /* RecipeStepTableViewCell.swift in Sources */,
 				08F1212A210AFD4C00A6F25A /* RecipeShiCaiTableViewCell.swift in Sources */,
 				081B19B7210EAD170060A949 /* RecipeStepsPlayerView.swift in Sources */,
+				08FB48EF211821B600A363D7 /* MyServiceExtension.swift in Sources */,
 				0821E9C421085EFF002F45A9 /* CagtegoryBaseViewController.swift in Sources */,
 				08558F7321006EA900EC4A6F /* CategoryListModel.swift in Sources */,
 				08B37C40210AD9E4009EE99C /* RecipeSetpsViewController.swift in Sources */,
@@ -484,7 +494,9 @@
 				0821E9BE21085475002F45A9 /* FoodMaterialViewController.swift in Sources */,
 				081B3E1A20FDF33200927046 /* AppDelegate.swift in Sources */,
 				0821E9BC21085463002F45A9 /* HealthyViewController.swift in Sources */,
+				08FB48ED21181F4400A363D7 /* MyService.swift in Sources */,
 				0821E9C021085482002F45A9 /* NormalViewController.swift in Sources */,
+				08FB48F12118364C00A363D7 /* MyProvider.swift in Sources */,
 				0821E9BA21081B88002F45A9 /* CategoryListTableViewCell.swift in Sources */,
 				08C97E7F2109A1A900A8361E /* CategoryDetailCollectionViewCell.swift in Sources */,
 				08B37C3C210AD5DA009EE99C /* UponShefTools.swift in Sources */,
