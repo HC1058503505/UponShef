@@ -108,7 +108,7 @@ class HTTPManager {
                 return Observable<RecipeDetailModel>.error(UponShefError.dataFormatWrong)
             }
             
-            let recipeDetailM = RecipeDetailModel.recipeDetail(content: steps)
+            let recipeDetailM = (try? JSONDecoder().decode(RecipeDetailModel.self, from: JSONSerialization.data(withJSONObject: steps, options: []))) ?? RecipeDetailModel()
     
             return Observable<RecipeDetailModel>.create({ (recipeDetail) -> Disposable in
                 recipeDetail.onNext(recipeDetailM)

@@ -62,7 +62,7 @@ class RecipeSetpsViewController: UIViewController {
         let items = recipeDetail.flatMap {[weak self] (recipeDetailM) -> Observable<[SectionModel<String, Any>]> in
             self?.recipeStepModel = recipeDetailM
             var imageSource = [Resource]()
-            for step in recipeDetailM.setps {
+            for step in recipeDetailM.steps {
                 let imgS = step.step_img_src
                 let url = URL(string: imgS)
                 imageSource.append(url!)
@@ -83,7 +83,7 @@ class RecipeSetpsViewController: UIViewController {
             self?.recipeCoverImgView.kf.setImage(with: URL(string: imageURL), placeholder: Constant.placeholderImg)
            return Observable.just([
                 SectionModel(model: "shicai", items: recipeDetailM.shicais),
-                SectionModel(model: "steps", items: recipeDetailM.setps)
+                SectionModel(model: "steps", items: recipeDetailM.steps)
             ])
         }
      
@@ -122,7 +122,7 @@ class RecipeSetpsViewController: UIViewController {
                 }
                 
                 let pictureBrowseVC = RecipePictureBrowseViewController()
-                pictureBrowseVC.pictrueSteps = self?.recipeStepModel?.setps ?? [RecipeSteps]()
+                pictureBrowseVC.pictrueSteps = self?.recipeStepModel?.steps ?? [RecipeSteps]()
                 pictureBrowseVC.currentStepIndex = indexPath.row
                 let snapView = UIScreen.main.snapshotView(afterScreenUpdates: true)
                 pictureBrowseVC.snapView = snapView
