@@ -35,13 +35,13 @@ struct CategoryInfo: Codable {
     }
 }
 
-
+// 结构体实例无法改变结构体属性的值
+// 因为结构体是值类型
 struct MealsSubModel: Codable {
     let categoryUrl: String
     let categoryTitle: String
     let categorySubs: [CategoryInfo]?
     let meterialSubs: [[CategoryInfo]]?
-    var isSelected = false
     
     enum CodingKeys: String, CodingKey {
         case categoryUrl = "category_url"

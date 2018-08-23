@@ -11,8 +11,8 @@ import UIKit
 
 public struct Constant {
    static let apiKey = "b06520d3f7ef51f2abcf66363145290a"
-   static let baseURL = "http://localhost:3000"
-    
+   static let baseURL = "http://116.85.31.240:443"
+   static let kListWidth:CGFloat = 120.0
    static let kScreenWidth = UIScreen.main.bounds.width
    static let kScreenHeight = UIScreen.main.bounds.height
     

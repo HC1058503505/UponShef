@@ -11,12 +11,12 @@ import RxCocoa
 import RxSwift
 class CagtegoryBaseViewController: UIViewController {
     fileprivate let disposeBag = DisposeBag()
-    
+
     var segmentIndex:Observable<Int> = Observable<Int>.empty()
     var cellsArr = [Bool]()
     fileprivate var categoryModels: MealsCategoryModel?
     fileprivate var tempSelectedIndexPath = IndexPath(row: 0, section: 0)
-    fileprivate let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 100, height: Constant.kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()), style: .plain)
+    fileprivate let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: Constant.kListWidth, height: Constant.kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()), style: .plain)
     
     
     fileprivate var detailCollection = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
@@ -59,11 +59,11 @@ class CagtegoryBaseViewController: UIViewController {
             flow.minimumLineSpacing = 10
             flow.scrollDirection = .vertical
             if hasHeader {
-                flow.headerReferenceSize = CGSize(width: Constant.kScreenWidth - 100, height: 34.0)
+                flow.headerReferenceSize = CGSize(width: Constant.kScreenWidth - Constant.kListWidth, height: 34.0)
             }
         }
         
-        detailCollection = UICollectionView(frame: CGRect(x: 100, y: 0, width: Constant.kScreenWidth - 100, height: Constant.kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()), collectionViewLayout: flowLayout)
+        detailCollection = UICollectionView(frame: CGRect(x: Constant.kListWidth, y: 0, width: Constant.kScreenWidth - Constant.kListWidth, height: Constant.kScreenHeight - Tools.navigationHeight() - Tools.tabBarHeight()), collectionViewLayout: flowLayout)
         detailCollection.backgroundColor = UIColor.white
         detailCollection.dataSource = self
         detailCollection.delegate = self
