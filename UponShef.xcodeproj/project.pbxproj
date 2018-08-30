@@ -151,7 +151,6 @@
 				081B3E2B20FDF3FA00927046 /* Base */,
 				081B3E3120FDF44100927046 /* Tools */,
 				081DDD2C20FF412B000E571C /* Sources */,
-				084CF9C02111977D0060C4A8 /* TranslateAnimation */,
 				081B3E2020FDF33300927046 /* Assets.xcassets */,
 				081B3E2220FDF33300927046 /* LaunchScreen.storyboard */,
 				081B3E2520FDF33300927046 /* Info.plist */,
@@ -243,13 +242,6 @@
 			children = (
 			);
 			path = CustomEureka;
-			sourceTree = "<group>";
-		};
-		084CF9C02111977D0060C4A8 /* TranslateAnimation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TranslateAnimation;
 			sourceTree = "<group>";
 		};
 		08558F6C21004F6A00EC4A6F /* HotCategory */ = {
