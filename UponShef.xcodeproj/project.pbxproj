@@ -170,7 +170,6 @@
 		081B3E3120FDF44100927046 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				0829668021144BE200C13891 /* CustomEureka */,
 				081B3E3220FDF46000927046 /* Constant.swift */,
 				081B3E3320FDF46000927046 /* Extension.swift */,
 				08558F762100904800EC4A6F /* HTTPManager.swift */,
@@ -235,13 +234,6 @@
 				081B19BA210EF0B00060A949 /* PictureBrowseCollectionViewCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		0829668021144BE200C13891 /* CustomEureka */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CustomEureka;
 			sourceTree = "<group>";
 		};
 		08558F6C21004F6A00EC4A6F /* HotCategory */ = {
