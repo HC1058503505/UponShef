@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         createShortcutItems()
-        
+        // rebase_test
         // 程序启动，点开Touch
         if let launchOptionsKey = launchOptions , let shortcutItem = launchOptionsKey[UIApplicationLaunchOptionsKey.shortcutItem] as? UIApplicationShortcutItem{
             touchShortcutItemAction(shortcutItem)
