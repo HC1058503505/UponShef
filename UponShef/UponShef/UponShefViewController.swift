@@ -18,7 +18,7 @@ class UponShefViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
-        
+        // 创建label
         let label = UILabel().then { (textL) in
             textL.textColor = UIColor.white
             textL.backgroundColor = UIColor.orange
